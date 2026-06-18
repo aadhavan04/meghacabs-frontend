@@ -4,9 +4,9 @@ import cabImg from './assets/cab.png';
 import emailjs from '@emailjs/browser';
 emailjs.init('g_XWVw7BEVg_2_H5m');
 import { useAuth } from './context/AuthContext'
-import Login from './pages/Login'
-import Register from './pages/Register'
-import MyBookings from './pages/MyBookings'
+import Login from './Pages/Login'
+import Register from './Pages/Register'
+import MyBookings from './Pages/MyBookings'
 import axios from 'axios'
 
 
