@@ -294,7 +294,7 @@ const handleSubmit = async () => {
           </div>
           <div className="mc-pricing-grid">
             {[
-              { title: 'Chennai Local', route: 'Within city limits', price: '₹1500', unit: '5 Hours', features: ['Toll & parking extra','Night surcharge applies','Driver batta included'], featured: false },
+              { title: 'Chennai Local', route: 'Within city limits', price: '₹350', unit: '1 Hour', features: ['Toll & parking extra','Night surcharge applies','Driver batta included'], featured: false },
               { title: 'Outstation', route: 'Tamil Nadu & Beyond', price: '₹16', unit: 'per km · Both ways', features: ['250 km/day minimum','Driver allowance extra','Tolls & parking extra','One-way options available'], featured: true },
               { title: 'Airport Transfer', route: 'Chennai Airport', price: '₹999', unit: 'Starting From', features: ['Free 30 min wait','Early morning available','24/7 service'], featured: false },
             ].map(p => (
