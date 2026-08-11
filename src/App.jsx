@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import './App.css'
 import cabImg from './assets/cab.png';
+import sedanImg from './assets/sedan_car-removebg-preview.png';
+import innovaImg from './assets/innova.png';
+import sImg from './assets/s.png';
+import og from './assets/og.png';
 import emailjs from '@emailjs/browser';
 emailjs.init('g_XWVw7BEVg_2_H5m');
 import { useAuth } from './context/AuthContext'
@@ -8,6 +12,7 @@ import Login from './Pages/Login'
 import Register from './Pages/Register'
 import MyBookings from './Pages/MyBookings'
 import axios from 'axios'
+import { img } from 'framer-motion/client';
 
 
 function App() {
@@ -206,6 +211,7 @@ const handleSubmit = async () => {
               <span>🏆</span>
               <p>Best Cab Service<br/>Chennai 2024</p>
             </div>
+            <img src={og} alt="About" />
           </div>
           <div className="mc-about-text">
             <p className="mc-label">About Us</p>
@@ -262,13 +268,13 @@ const handleSubmit = async () => {
           </div>
           <div className="mc-fleet-grid">
             {[
-              { icon: '', name: 'Sedan', desc: 'Ideal for solo or couple travel and family. Fuel efficient and comfortable.', tags: ['5 Seater','AC','Music'], price: '₹16/km onwards' },
-              { icon: '', name: 'Innova Crysta', desc: 'The favourite for family trips and outstation journeys. Spacious and powerful.', tags: ['7 Seater','AC','Boot Space'], price: '₹22/km onwards', popular: true },
-              { icon: '', name: 'SUV', desc: 'For large groups, corporate tours, and pilgrimages. Ample luggage space.', tags: ['AC','Group Travel'], price: '₹20/km onwards' },
+              { img: sedanImg, name: 'Sedan', desc: 'Ideal for solo or couple travel and family. Fuel efficient and comfortable.', tags: ['5 Seater','AC','Music'], price: '₹16/km onwards' },
+                { img: innovaImg, name: 'Innova Crysta', desc: 'The favourite for family trips and outstation journeys. Spacious and powerful.', tags: ['7 Seater','AC','Boot Space'], price: '₹23/km onwards', popular: true },
+              { img: sImg, name: 'SUV', imgClass: 'mc-suv-img', desc: 'For large groups, corporate tours, and pilgrimages. Ample luggage space.', tags: ['AC','Group Travel'], price: '₹20/km onwards' },
             ].map(f => (
               <div key={f.name} className={`mc-fleet-card ${f.popular ? 'popular' : ''}`}>
                 {f.popular && <span className="mc-popular-tag">Most Booked</span>}
-                <div className="mc-fleet-icon">{f.icon}</div>
+                <div className="mc-fleet-icon">{f.img ? <img src={f.img} alt={f.name} className={f.imgClass || 'mc-fleet-img'} /> : f.icon}</div>
                 <div className="mc-fleet-body">
                   <h3>{f.name}</h3>
                   <p>{f.desc}</p>

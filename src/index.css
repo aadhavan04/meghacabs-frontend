@@ -176,3 +176,8 @@ section { padding: 90px 0; }
   .mc-footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
   .mc-about-points { grid-template-columns: 1fr; }
 }
+
+.mc-suv-img {
+  width: 300px;
+  height: 300px;
+}
