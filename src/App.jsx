@@ -188,11 +188,12 @@ const handleSubmit = async () => {
     src={cabImg}
     alt="Megha Cabs"
     style={{
-      width: "150%",
-      height: "300px",
-      //objectFit: "cover",
-      borderRadius: "10px",
-      //display: "block",
+            width: "100%",
+            height: "auto",
+            maxWidth: "420px",
+            //objectFit: "cover",
+            borderRadius: "10px",
+            display: "block",
     }}
   />
 </div>
