@@ -178,8 +178,8 @@ section { padding: 90px 0; }
 }
 
 .mc-suv-img {
-  width: 64px !important;
-  height: 40px !important;
+  width: 200px !important;
+  height: 200px !important;
   max-width: 100%;
   height: auto;
 }
