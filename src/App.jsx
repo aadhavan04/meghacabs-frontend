@@ -204,15 +204,17 @@ const handleSubmit = async () => {
       <section id="about" className="mc-about">
         <div className="mc-container mc-about-grid">
           <div className="mc-about-img">
+            <h3 className="mc-badge-txt">15 Years of Excellence</h3>
+            <h4 className="point1">Best Cab Service<br/>Chennai 2024</h4>
             <div className="mc-about-badge">
-              <span className="mc-badge-num">15</span>
-              <span className="mc-badge-txt">Years of<br/>Excellence</span>
+                            
+              {/*<span className="mc-badge-num">15</span>*/}
+              
             </div>
             <div className="mc-about-card">
-              <span>🏆</span>
-              <p>Best Cab Service<br/>Chennai 2024</p>
-            </div>
-            <img src={og} alt="About" />
+             </div>
+           {/*<span>🏆</span>*/}
+              
           </div>
           <div className="mc-about-text">
             <p className="mc-label">About Us</p>

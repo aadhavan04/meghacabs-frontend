@@ -18,9 +18,10 @@
 }
 
 html { scroll-behavior: smooth; }
-body { font-family: 'Source Sans 3', sans-serif; color: var(--text); background: var(--white); line-height: 1.65; }
-.mc-root { min-height: 100vh; }
-.mc-container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+body { font-family: 'Source Sans 3', sans-serif; color: var(--text); background: var(--white); line-height: 1.65; overflow-x: hidden; }
+img, svg, video { max-width: 100%; display: block; height: auto; }
+.mc-root { min-height: 100vh; width: 100%; overflow-x: hidden; }
+.mc-container { max-width: 1200px; margin: 0 auto; padding: 0 5%; width: 100%; }
 
 /* NAV */
 .mc-nav { position: sticky; top: 0; z-index: 200; background: var(--navy); border-bottom: 2px solid var(--gold); }
@@ -68,10 +69,9 @@ section { padding: 90px 0; }
 .mc-about { background: var(--cream); }
 .mc-about-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; align-items: center; }
 .mc-about-img { position: relative; height: 340px; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 5rem; }
-.mc-about-badge { position: absolute; bottom: -20px; right: -20px; background: var(--gold); padding: 20px 24px; border-radius: 8px; text-align: center; }
-.mc-badge-num { display: block; font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--navy); }
-.mc-badge-txt { font-size: 0.78rem; font-weight: 600; color: var(--navy); line-height: 1.4; }
-.mc-about-card { position: absolute; top: -16px; left: -16px; background: var(--white); padding: 16px 18px; border-radius: 8px; text-align: center; font-size: 1.8rem; }
+/*.mc-about-badge { position: absolute; bottom: -20px; right: -20px; background: var(--gold); padding: 20px 24px; border-radius: 8px; text-align: center; }*/
+
+/*.mc-about-card { position: absolute; top: -16px; left: -16px; background: var(--white); padding: 16px 18px; border-radius: 8px; text-align: center; font-size: 1.8rem; }*/
 .mc-about-card p { font-size: 0.72rem; color: var(--navy); font-weight: 600; margin-top: 4px; line-height: 1.4; }
 .mc-about-text p { color: var(--gray); font-size: 0.97rem; line-height: 1.8; margin-bottom: 14px; }
 .mc-about-points { margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -189,4 +189,24 @@ section { padding: 90px 0; }
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+
+.mc-badge-txt {
+  font-weight: 600;
+  color: rgb(168, 255, 248);
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  margin-bottom: 1.5rem;
+  font-family: "Sekuya", system-ui;
+  justify-content: end;
+  text-align: end;
+  width: 100%;
+  padding: 0 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .mc-badge-txt {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
 }
