@@ -67,6 +67,13 @@ const handleSubmit = async () => {
 
   } catch (err) {
     console.error(err)
+    if (err.response?.status === 401) {
+      logout()
+      setAuthPage('login')
+      alert('Your session expired. Please login again before booking.')
+      setBookingStatus('idle')
+      return
+    }
     setBookingStatus('error')
     setTimeout(() => setBookingStatus('idle'), 1000)
   }
