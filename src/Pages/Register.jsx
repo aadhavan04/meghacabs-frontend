@@ -14,7 +14,7 @@ const handleSubmit = async () => {
 
   setLoading(true)
   try {
-    await api.post('/api/auth/register', form)
+    await api.post('/auth/register', form)
     
  
     alert('Registration successful! Please login to continue.')

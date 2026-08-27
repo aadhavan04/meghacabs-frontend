@@ -14,7 +14,7 @@ const handleSubmit = async () => {
 
   setLoading(true)
   try {
-    const { data } = await api.post('/api/auth/login', form)
+    const { data } = await api.post('/auth/login', form)
     login(data.user, data.token)
 
     window.location.reload()

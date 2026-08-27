@@ -8,7 +8,7 @@ export default function MyBookings() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    api.get('/api/bookings/mine', {
+    api.get('/bookings/mine', {
       headers: { Authorization: `Bearer ${token}` }
     }).then(({ data }) => {
       setBookings(data)

@@ -53,7 +53,7 @@ const handleSubmit = async () => {
   setBookingStatus('loading')
 
   try {
-    await api.post('/api/bookings', formData, {
+    await api.post('/bookings', formData, {
       headers: { Authorization: `Bearer ${token}` },
       timeout: 15000,
     })
