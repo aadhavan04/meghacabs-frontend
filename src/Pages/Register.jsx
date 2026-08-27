@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import axios from 'axios'
+import api from '../api'
 import { useAuth } from '../context/AuthContext'
 
 export default function Register({ onSwitch }) {
@@ -14,7 +14,7 @@ const handleSubmit = async () => {
 
   setLoading(true)
   try {
-    await axios.post("https://meghacabs-backend.onrender.com/api/auth/register", form)
+    await api.post('/api/auth/register', form)
     
  
     alert('Registration successful! Please login to continue.')

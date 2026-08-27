@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import axios from 'axios'
+import api from '../api'
 import { useAuth } from '../context/AuthContext'
 
 export default function MyBookings() {
@@ -8,7 +8,7 @@ export default function MyBookings() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    axios.get('https://meghacabs-backend.onrender.com/api/bookings/mine', {
+    api.get('/api/bookings/mine', {
       headers: { Authorization: `Bearer ${token}` }
     }).then(({ data }) => {
       setBookings(data)

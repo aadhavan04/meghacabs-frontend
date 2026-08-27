@@ -5,13 +5,11 @@ import sedanImg from './assets/sedan_car-removebg-preview.png';
 import innovaImg from './assets/innova.png';
 import sImg from './assets/s.png';
 import og from './assets/og.png';
-import emailjs from '@emailjs/browser';
-emailjs.init('g_XWVw7BEVg_2_H5m');
 import { useAuth } from './context/AuthContext'
 import Login from './Pages/Login'
 import Register from './Pages/Register'
 import MyBookings from './Pages/MyBookings'
-import axios from 'axios'
+import api from './api'
 import { img } from 'framer-motion/client';
 
 
@@ -46,52 +44,26 @@ const handleSubmit = async () => {
     return
   }
 
+  if (!user || !token) {
+    alert('Please login before booking')
+    setAuthPage('login')
+    return
+  }
+
   setBookingStatus('loading')
 
   try {
-    // EmailJS
-    await emailjs.send('service_zfc5lvo', 'template_ehqbp3k', {
-      from_name: formData.name,
-      phone: formData.phone,
-      user_email: formData.email,
-      service: formData.service,
-      from_location: formData.from,
-      to_location: formData.to,
-      date: formData.date,
-      time: formData.time,
-      vehicle: formData.vehicle,
-      notes: formData.notes,
-    }, 'g_XWVw7BEVg_2_H5m')
+    await api.post('/api/bookings', formData, {
+      headers: { Authorization: `Bearer ${token}` },
+      timeout: 15000,
+    })
 
-    // EmailJS — customer 
-    await emailjs.send('service_zfc5lvo', 'template_rg8jcxu', {
-      from_name: formData.name,
-      user_email: formData.email,
-      service: formData.service,
-      from_location: formData.from,
-      to_location: formData.to,
-      date: formData.date,
-      time: formData.time,
-      vehicle: formData.vehicle,
-    }, 'g_XWVw7BEVg_2_H5m')
-
-    
     setBookingStatus('success')
     setFormData({
       name: user?.name || '', phone: user?.phone || '', email: user?.email || '',
       service: '', from: '', to: '', date: '', time: '', vehicle: '', notes: ''
     })
     setTimeout(() => setBookingStatus('idle'), 15000)
-
-  
-    if (user && token) {
-      axios.post('https://meghacabs-backend.onrender.com/api/bookings', formData, {
-        headers: { Authorization: `Bearer ${token}` },
-        timeout: 15000, // 15 sec max wait, atharkku mela give up
-      }).catch(err => {
-        console.error('Backend save failed (non-critical):', err)
-      })
-    }
 
   } catch (err) {
     console.error(err)

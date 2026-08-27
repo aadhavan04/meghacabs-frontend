@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import axios from 'axios'
+import api from '../api'
 import { useAuth } from '../context/AuthContext'
 
 export default function Login({ onSwitch }) {
@@ -14,7 +14,7 @@ const handleSubmit = async () => {
 
   setLoading(true)
   try {
-    const { data } = await axios.post("https://meghacabs-backend.onrender.com/api/auth/login", form)
+    const { data } = await api.post('/api/auth/login', form)
     login(data.user, data.token)
 
     window.location.reload()
