@@ -55,7 +55,7 @@ const handleSubmit = async () => {
   try {
     await api.post('/bookings', formData, {
       headers: { Authorization: `Bearer ${token}` },
-      timeout: 15000,
+      timeout: 60000,
     })
 
     setBookingStatus('success')
