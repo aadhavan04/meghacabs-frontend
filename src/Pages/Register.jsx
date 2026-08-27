@@ -21,7 +21,8 @@ const handleSubmit = async () => {
     onSwitch()   // login page ku pogum
     
   } catch (err) {
-    setError(err.response?.data?.msg || 'Registration failed')
+    console.error('Registration error:', err)
+    setError(err.response?.data?.msg || `Registration failed (${err.response?.status || 'network error'})`)
   }
   setLoading(false)
 }
